@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./navbar.css";
 import logo from "../../assets/logo.png";
 
@@ -9,34 +9,78 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <div className="logo">
+
+        {/* Logo */}
+        <Link to="/" className="logo" onClick={() => setOpen(false)}>
           <img src={logo} alt="Sri Bindu Madhav Mandir" />
           <span>Sri Bindu Madhav Mandir</span>
-        </div>
+        </Link>
 
+        {/* Navigation Links */}
         <ul className={`nav-links ${open ? "open" : ""}`}>
           <li>
-            <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
+            <NavLink 
+              to="/" 
+              end
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
+              Home
+            </NavLink>
           </li>
+
           <li>
-            <NavLink to="/Puja" onClick={() => setOpen(false)}>Puja</NavLink>
+            <NavLink 
+              to="/puja"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
+              Puja
+            </NavLink>
           </li>
+
           <li>
-            <NavLink to="/gallery" onClick={() => setOpen(false)}>Gallery</NavLink>
+            <NavLink 
+              to="/gallery"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
+              Gallery
+            </NavLink>
           </li>
+
           <li>
-            <NavLink to="/video" onClick={() => setOpen(false)}>Video</NavLink>
+            <NavLink 
+              to="/video"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
+              Video
+            </NavLink>
           </li>
+
           <li>
-            <NavLink to="/dan" onClick={() => setOpen(false)}>Dan</NavLink>
+            <NavLink 
+              to="/dan"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
+              Dan
+            </NavLink>
           </li>
+
           <li>
-            <NavLink to="/shivling-sthapana" onClick={() => setOpen(false)}>
+            <NavLink 
+              to="/shivlingStapana"
+              className={({ isActive }) => isActive ? "active" : ""}
+              onClick={() => setOpen(false)}
+            >
               Shivling Sthapana
             </NavLink>
           </li>
         </ul>
 
+        {/* Hamburger Menu */}
         <div
           className={`hamburger ${open ? "active" : ""}`}
           onClick={() => setOpen(!open)}
@@ -45,6 +89,7 @@ function Navbar() {
           <span></span>
           <span></span>
         </div>
+
       </div>
     </nav>
   );

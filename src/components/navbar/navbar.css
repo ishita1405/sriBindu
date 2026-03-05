@@ -1,17 +1,16 @@
 .navbar {
-  width: 100%;
+  background: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(247, 243, 238, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .nav-container {
-  max-width: 1500px;
+  width: 90%;
+  max-width: 1200px;
   margin: auto;
-  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -20,81 +19,73 @@
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  text-decoration: none;
+  color: #222;
   font-weight: 600;
-  color: #8b3a1a;
-  font-size: 30px;
+  font-size: 18px;
 }
 
 .logo img {
-  height: 60px;
+  height: 45px;
+  margin-right: 10px;
 }
 
 .nav-links {
   display: flex;
-  gap: 28px;
   list-style: none;
+  gap: 25px;
 }
 
-/* IMPORTANT: style NavLink, not li */
 .nav-links li a {
   text-decoration: none;
-  font-size: 19px;
-  letter-spacing: 1px;
-  color: #c14f1d;
-  transition: color 0.2s ease;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s ease;
 }
 
-/* Hover */
 .nav-links li a:hover {
-  color: #8b3a1a;
+  color: #ff6600;
 }
 
-/* Active route (NavLink adds .active) */
-.nav-links li a.active {
+.active {
+  color: #ff6600 !important;
   font-weight: 600;
-  border-bottom: 2px solid #8b3a1a;
-  padding-bottom: 4px;
 }
 
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
-  gap: 5px;
   cursor: pointer;
+  gap: 5px;
 }
 
 .hamburger span {
   width: 25px;
   height: 3px;
-  background: #8b3a1a;
+  background: #333;
   transition: 0.3s;
 }
 
-/* Mobile */
+/* Mobile Responsive */
 @media (max-width: 768px) {
   .nav-links {
     position: absolute;
-    top: 78px;
-    left: 0;
-    width: 100%;
-    background: #f7f3ee;
+    top: 80px;
+    right: -100%;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px 0;
-    display: none;
+    background: #fff;
+    width: 250px;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: 0.4s ease;
   }
 
   .nav-links.open {
-    display: flex;
+    right: 0;
   }
 
   .hamburger {
     display: flex;
-  }
-
-  .nav-links li a {
-    font-size: 18px;
   }
 }
